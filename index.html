@@ -1,739 +1,1547 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamila - Full Stack Developer</title>
+    <title>Kamila - Full Stack Developer Portfolio</title>
     <link rel="icon" type="image/png" href="img/favicon-2.png">
-    <meta property="og:title" content="Kamila - Full Stack Developer">
-    <meta property="og:description" content="Portfolio Full Stack Developer">
-    <meta property="og:image" content="https://kamilasaadah.github.io/web-portfolio-with-bootstrap/mila-profile.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kamilasaadah.github.io/web-portfolio-with-bootstrap/">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Google Fonts -->
+
+    <!-- Tailwind CSS (Play CDN with Typography & modern styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        darkbg: '#0f172a',
+                        darkcard: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons & Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-</head>
 
-<body>
-    <!--Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Kamila's Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <button id="theme-toggle" class="btn btn-sm rounded-circle">
-                            <i class="bi bi-moon-fill"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- html2pdf for Direct Client-side PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero d-flex align-items-center min-vh-100">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <div class="d-inline-block position-relative mb-4">
-                        <span class="badge bg-primary px-3 py-2 position-absolute top-0 start-0 translate-middle">Hello, I'm</span>
-                        <h1 class="display-4 fw-bold mt-4">Kamilatus Sa'adah</h1>
-                    </div>
-                    <h2 class="mb-4 fw-light">Full Stack Developer</h2>
-                    <p class="lead mb-4">I create beautiful, functional, and user-centered digital experiences that help businesses and individuals achieve their goals.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#portfolio" class="btn btn-primary px-4 py-2">View Portfolio</a>
-                        <a href="#contact" class="btn btn-outline-primary px-4 py-2">Contact Me</a>
-                         <a href="https://youtu.be/93DW5_ngn-Y" class="btn btn-outline-primary px-4 py-2">Introduction Video</a>
-                    </div>
-                    <div class="mt-5 d-flex gap-3">
-                        <a href="https://github.com/kamilasaadah" class="social-icon"><i class="bi bi-github"></i></a>
-                        <a href="https://www.linkedin.com/in/kamila-saadah-3633a4357/" class="social-icon"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://x.com/icedchocomillo" class="social-icon"><i class="bi bi-twitter-x"></i></a>
-                        <a href="https://www.instagram.com/kamilasdh" class="social-icon"><i class="bi bi-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center" data-aos="fade-left">
-                    <div class="hero-img-container">
-                        <img src="mila-profile.jpg" alt="Kamila" class="img-fluid hero-img">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <style>
+        /* Modern Glassmorphism & Custom Elements with High Contrast */
+        .glass {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(203, 213, 225, 0.85);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Gradient Glow effects */
+        .glow-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.35;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-    <!-- About Me Section -->
-    <section id="about" class="about py-6">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-6 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">ABOUT ME</h6>
-                    <h2 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">Get to know me better</h2>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
-                    <div class="about-img-container">
-                        <img src="img/mila-profile-1.jpg" alt="About Me" class="img-fluid rounded-4">
-                    </div>
-                </div>
-                <div class="col-lg-7" data-aos="fade-left">
-                    <h3 class="fw-bold mb-3">Full Stack Developer</h3>
-                    <p class="mb-4">Motivated Informatics Engineering student at Universitas Airlangga, Surabaya, with strong academic performance and extensive organizational experience. Skilled in software testing (manual, UAT, regression testing), documentation, and basic automation using HTML & CSS. Adept at teamwork, event coordination, and critical thinking. Eager to apply knowledge in Quality Assurance to contribute to delivering high-quality applications in a fast-paced environment.</p>
-                    <p class="mb-4">My approach combines technical expertise with creative problem-solving to deliver solutions that not only meet but exceed client expectations. I believe in clean code, responsive design, and accessibility as core principles in my work.</p>
-                    
-                    <div class="row mb-4">
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                <span>Laravel Development</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                <span>UI/UX Design</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                <span>Frontend Development</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                <span>Backend Development</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- <div class="mb-4" data-aos="fade-up" data-aos-delay="150">
-                        <h4 class="fw-bold mb-2">My Skills</h4>
-                        <p class="text-muted mb-0">For a full list of skills with animations, please see the dedicated section <a href="#skills" class="btn btn-link p-0 align-baseline">here</a>.</p>
-                    </div> -->
-                    
-                    <a href="https://drive.google.com/file/d/14_k6EFMn5QnnoJhnQ6ecCWLifb-uue_B/view?usp=sharing" class="btn btn-primary px-4 py-2" data-aos="fade-up" data-aos-delay="200">
-                        <i class="bi bi-download me-2"></i>View CV
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Print / PDF Specific Optimization - High Contrast, Anti-Slicing & Compact Multi-Column Layout */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                text-shadow: none !important;
+                box-sizing: border-box !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 8mm 10mm;
+            }
+            html, body, .dark body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                font-size: 10.5px !important;
+                line-height: 1.35 !important;
+            }
+            .no-print, header, nav, #pdf-button, #theme-toggle, .glow-blob, #contact form, .btn-action, #scroll-bar, #imageModal {
+                display: none !important;
+            }
+            main {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            section {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                min-height: auto !important;
+                page-break-inside: auto;
+                break-inside: auto;
+            }
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills py-6 bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-6 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">MY SKILLS</h6>
-                    <h2 class="fw-bold mb-4 text-balance" data-aos="fade-up" data-aos-delay="100">Tech Stack & Tools</h2>
-                    <p class="mb-0" data-aos="fade-up" data-aos-delay="150">Skills I frequently use in web, mobile, and design development.</p>
-                </div>
-            </div>
-            <div class="row g-3 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-auto"><div class="skill-badge reveal-skill">Laravel</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Flutter</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Node.js</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">React</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Backend</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Figma</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">UI/UX</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">JavaScript</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">HTML & CSS</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Git</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">PHP</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Dart</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Python</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">MongoDB</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">SQL</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Manual Testing</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">UAT</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Regression Testing</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Microsoft Office</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Google Workspace</div></div>
-                <div class="col-auto"><div class="skill-badge reveal-skill">Canva</div></div>
-            </div>
-        </div>
-    </section>
+            /* GLOBAL ANTI-SLICING & ORPHAN PREVENTION */
+            h1, h2, h3, h4, h5, h6 {
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            p, li, blockquote {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                orphans: 4 !important;
+                widows: 4 !important;
+            }
+            .break-inside-avoid, .glass,
+            #skills .glass, #skills .grid > div,
+            #portfolio .glass, #portfolio .grid > div,
+            #experience .glass, #experience .break-inside-avoid,
+            #education .glass, #education .break-inside-avoid,
+            #contact .glass {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                -webkit-column-break-inside: avoid !important;
+            }
 
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio py-6 bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-6 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">MY PORTFOLIO</h6>
-                    <h2 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">Recent Projects</h2>
-                    <p class="mb-0" data-aos="fade-up" data-aos-delay="200">
-                        Here are some of my recent projects that showcase my skills and expertise in web development, UI/UX design, and more.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <!-- Project 1 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/decentgrowth.png" class="card-img-top" alt="DecentGrowth Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">DecentGrowth</h5>
-                                <span class="badge bg-primary">Software Requirements</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                DecentGrowth is a web-based digital platform designed to help individuals from disadvantaged backgrounds find and access decent employment opportunities. The platform connects job seekers with potential employers through skills-based matching, interactive location maps, and a secure online payment system. This project focuses on developing an SRS (Software Requirements Specification) document.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://drive.google.com/file/d/1R6AsfBM4rZKXtB-18zBDCKQ2CwPr5H1q/view?usp=sharing" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-link-45deg"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/medistore.png" class="card-img-top" alt="MediStore Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">MediStore</h5>
-                                <span class="badge bg-primary">Laravel</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                MediStore is a web-based digital platform that serves as an information and drug ordering system for the general public. It enables pharmacies to manage their drug stock more efficiently while providing convenience for users to order medicine online. The platform is built using PHP with the Laravel framework and MySQL for the backend.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://github.com/FDAGaming/Tugas-Workshop-kelompok-2.git" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/railku.png" class="card-img-top" alt="RailKu Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">RailKu</h5>
-                                <span class="badge bg-primary">Prototype UI/UX</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                RailKu is a train ticket booking application designed to make it easier and more convenient for users to book intercity train tickets for long-distance travel between major cities.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://www.figma.com/proto/dVCphx691bA07tmkuSEUCe/project-ui?node-id=162-11935&starting-point-node-id=162%3A11935&t=Zaq5MlVestOemOBF-1" class="btn btn-sm btn-outline-dark">
-                                    <i class="fa-brands fa-figma"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="BANSOSFIX.png" class="card-img-top" alt="BansosFix Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">BansosFix</h5>
-                                <span class="badge bg-primary">Project Management</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                BansosFix is a digital solution designed to ensure the validation of poverty data in the 10 poorest regions of East Java is more transparent and accurate.
-                                This system allows IT-based survey teams to verify the validity of aid recipient data reported by local officials.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="#" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-link-45deg"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/panenia.png" class="card-img-top" alt="Panenia Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">Panenia</h5>
-                                <span class="badge bg-primary">Frontend Development</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                Panenia is an e-commerce website for agricultural products such as vegetables, fruits, spices, and other essentials.
-                                It includes features like online ordering, payment processing, shopping cart, purchase history, related articles, and an admin dashboard for managing sales.
-                                The project is built using HTML, CSS, and JavaScript.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://github.com/kamilasaadah/panenia.git" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                                <a href="https://kamilasaadah.github.io/panenia/" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-link-45deg"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/sweetnestbakery.png" class="card-img-top" alt="Sweetnest Bakery Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">Sweetnest Bakery</h5>
-                                <span class="badge bg-primary">Frontend Development</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                A UI/UX landing page design project built using HTML and CSS, applying structured layout sections for a clean and visually appealing interface.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://github.com/kamilasaadah/sweetnestbakery" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/pastryparadise.png" class="card-img-top" alt="Pastry Paradise Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">Pastry Paradise</h5>
-                                <span class="badge bg-primary">Mobile App Programming</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                A full-stack mobile application project about pastry recipes, developed using Dart and the Flutter framework with PocketBase as the backend.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://github.com/kamilasaadah/pastryparadise" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                    <div class="card portfolio-card h-100">
-                        <div class="portfolio-img">
-                            <img src="img/towerdefense.png" class="card-img-top" alt="Tower Defense Project">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">Tower Defense</h5>
-                                <span class="badge bg-primary">Artificial Intelligence</span>
-                            </div>
-                            <p class="card-text clamp-3">
-                                A project that implements artificial intelligence in a tower defense game using Python, applying the Mamdani fuzzy logic concept.
-                            </p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://github.com/kamilasaadah/towerdefense" class="btn btn-sm btn-outline-dark">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                                <a href="https://www.figma.com/proto/spLEZSxOwPaVoVbfshgOt8/AI-Tower-Defense?node-id=96-66&t=IYPCD34XTgQ4XvAJ-1" class="btn btn-sm btn-outline-dark">
-                                    <i class="fa-brands fa-figma"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience py-6">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">MY EXPERIENCE</h6>
-                    <h2 class="fw-bold mb-4 text-balance" data-aos="fade-up" data-aos-delay="100">Organizational & Leadership Experience</h2>
-                    <p class="mb-0" data-aos="fade-up" data-aos-delay="150">Ringkasan pengalaman organisasi dengan tampilan timeline yang dinamis.</p>
-                </div>
-            </div>
-
-            <div class="timeline mx-auto" data-aos="fade-up" data-aos-delay="200">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Vice Chairperson - IPPNU PR Kemiri, Pasuruan</h5>
-                            <p class="text-muted small mb-2">Nov 2023 - Present</p>
-                            <p class="mb-0">Provided leadership and coordinated youth activities at the community level. Managed organizational planning and communication.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="50">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Member of Organization Department - IPPNU Sukorejo, Pasuruan</h5>
-                            <p class="text-muted small mb-2">Jan 2025 - Present</p>
-                            <p class="mb-0">Supported event management and organizational development activities.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="100">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Secretary of Community Service - HIMA D4 Informatics Engineering, Universitas Airlangga</h5>
-                            <p class="text-muted small mb-2">Feb 2025 - Present</p>
-                            <p class="mb-0">Coordinated community service programs, documentation, and communication with stakeholders.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="150">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Staff of Secretariat Division - Student Orientation Program, Universitas Airlangga</h5>
-                            <p class="text-muted small mb-2">Aug 2024 - Dec 2024</p>
-                            <p class="mb-0">Assisted in documentation, administration, and coordination during student orientation events.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="200">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Event Staff - Aliyah Campus Expo, Pasuruan</h5>
-                            <p class="text-muted small mb-2">Dec 2023 - Jan 2024</p>
-                            <p class="mb-0">Contributed to planning and logistics of campus expo events.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="250">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Speaker Division Staff - Aliyah Campus Expo, Pasuruan</h5>
-                            <p class="text-muted small mb-2">Nov 2024 - Jan 2025</p>
-                            <p class="mb-0">Coordinated guest speakers and managed communication for sessions.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="300">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Executive Secretary - Inauguration Committee of IPNU IPPNU Sukorejo</h5>
-                            <p class="text-muted small mb-2">Jan 2025 - Feb 2025</p>
-                            <p class="mb-0">Drafted official letters, minutes, reports, and coordinated cross-division communication.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="350">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Fundraising Division Staff - HIMTI CARES Vol. 3</h5>
-                            <p class="text-muted small mb-2">Apr 2025 - Jul 2025</p>
-                            <p class="mb-0">Raised and managed funds, built partnerships with sponsors and stakeholders.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="400">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Person in Charge - MAKESTA RAYA IPNU IPPNU PR Kemiri</h5>
-                            <p class="text-muted small mb-2">Mar 2025 - Jun 2025</p>
-                            <p class="mb-0">Supervised planning and execution, ensured program goals were achieved.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-delay="450">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="mb-1">Head of Committee - Public Speaking Workshop</h5>
-                            <p class="text-muted small mb-2">Jul 2025 - Sep 2025</p>
-                            <p class="mb-0">Led the committee, coordinated speakers, participants, and logistics.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education py-6 bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">MY EDUCATION</h6>
-                    <h2 class="fw-bold mb-4 text-balance" data-aos="fade-up" data-aos-delay="100">Education History</h2>
-                    <p class="mb-0" data-aos="fade-up" data-aos-delay="150">Educational traces that formed my technical foundation.</p>
-                </div>
-            </div>
-
-            <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-md-6">
-                    <div class="edu-step card h-100 shadow-sm">
-                        <div class="card-body d-flex align-items-start gap-3">
-                            <div class="edu-icon">
-                                <i class="bi bi-mortarboard-fill"></i>
-                            </div>
-                            <div>
-                                <h5 class="card-title mb-1">Applied Bachelor's Degree in Informatics Engineering</h5>
-                                <p class="card-subtitle mb-2 text-muted">Universitas Airlangga, Surabaya</p>
-                                <p class="small text-muted mb-2">Aug 2023 - Present</p>
-                                <p class="mb-0">Studying advanced topics in software development, databases, and full stack technologies.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos-delay="250">
-                    <div class="edu-step card h-100 shadow-sm">
-                        <div class="card-body d-flex align-items-start gap-3">
-                            <div class="edu-icon">
-                                <i class="bi bi-book-fill"></i>
-                            </div>
-                            <div>
-                                <h5 class="card-title mb-1">High School - Mathematics and Natural Sciences</h5>
-                                <p class="card-subtitle mb-2 text-muted">MAS MAARIF SUKOREJO, Pasuruan</p>
-                                <p class="small text-muted mb-2">Jul 2020 - Jul 2023</p>
-                                <p class="mb-0">Focused on foundational sciences and mathematics, preparing for engineering studies.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reflections Section -->
-    <section id="reflections" class="reflections py-6">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">REFLECTIONS</h6>
-                    <h2 class="fw-bold mb-4 text-balance" data-aos="fade-up" data-aos-delay="100">Learning Journey</h2>
-                    <p class="mb-0" data-aos="fade-up" data-aos-delay="150">
-                        A brief reflection on my learning journey, challenges, and highlights throughout university. 
-                        It has been a period of growth — from understanding core programming principles to building real-world projects. 
-                        Overcoming challenges such as time management and adapting to new technologies has strengthened both my technical and problem-solving abilities.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact py-6">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-6 text-center">
-                    <h6 class="text-primary fw-bold mb-2" data-aos="fade-up">CONTACT ME</h6>
-                    <h2 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">Get In Touch</h2>
-                    <p class="mb-0" data-aos="fade-up" data-aos-delay="200">Have a project in mind or want to collaborate? Feel free to reach out to me using the form below or through my social media channels.</p>
-                </div>
-            </div>
+            /* FORCE HIGH CONTRAST DARK TEXT (Overrides dark mode in print) */
+            h1, h2, h3, h4, h5, h6,
+            .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+            .text-slate-900, .dark .dark\:text-white, .dark .dark\:text-slate-100 {
+                color: #0f172a !important;
+            }
+            p, span:not(.badge-text):not(.badge-content), li, div, label,
+            .dark p, .dark span:not(.badge-text):not(.badge-content), .dark li,
+            .text-slate-700, .text-slate-600, .text-slate-500, .text-slate-400,
+            .dark .dark\:text-slate-200, .dark .dark\:text-slate-300, .dark .dark\:text-slate-400 {
+                color: #1e293b !important;
+            }
+            .text-indigo-600, .dark .text-indigo-400, .text-indigo-500 {
+                color: #4338ca !important;
+                font-weight: 700 !important;
+            }
             
-            <div class="row g-4">
-                <div class="col-lg-5" data-aos="fade-right">
-                    <div class="card contact-info-card h-100">
-                        <div class="card-body p-4">
-                            <h3 class="fw-bold mb-4">Let's talk about your project</h3>
-                            <p class="mb-5">Fill out the form and I'll get back to you as soon as possible.</p>
-                            
-                            <div class="contact-info-item d-flex mb-4">
-                                <div class="icon me-3">
-                                    <i class="bi bi-envelope-fill text-primary"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Email</h6>
-                                    <p class="mb-0">kamilatus.saadah.410739-2023@vokasi.unair.ac.id</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-info-item d-flex mb-4">
-                                <div class="icon me-3">
-                                    <i class="bi bi-telephone-fill text-primary"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Phone</h6>
-                                    <p class="mb-0">+62 812 2996 6949</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-info-item d-flex mb-4">
-                                <div class="icon me-3">
-                                    <i class="bi bi-geo-alt-fill text-primary"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Location</h6>
-                                    <p class="mb-0">Surabaya, Indonesia</p>
-                                </div>
-                            </div>
-                            
-                            <h6 class="fw-bold mb-3">Follow Me</h6>
-                            <div class="d-flex gap-3">
-                                <a href="https://github.com/kamilasaadah" class="social-icon social-icon-light"><i class="bi bi-github"></i></a>
-                                <a href="https://www.linkedin.com/in/kamila-saadah-3633a4357/" class="social-icon social-icon-light"><i class="bi bi-linkedin"></i></a>
-                                <a href="https://x.com/icedchocomillo" class="social-icon social-icon-light"><i class="bi bi-twitter-x"></i></a>
-                                <a href="https://www.instagram.com/kamilasdh" class="social-icon social-icon-light"><i class="bi bi-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-7" data-aos="fade-left">
-                    <div class="card h-100">
-                        <div class="card-body p-4">
-                            <h3 class="fw-bold mb-3">Send Me an Email!</h3>
-                            <p class="text-muted mb-4">Please fill out the form below to contact me. I'll get back to you as soon as possible 😊</p>
-                            <form id="contactForm">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="nameInput" placeholder="Your Name">
-                                            <label for="nameInput">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="emailInput" placeholder="Your Email">
-                                            <label for="emailInput">Your Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="tel" class="form-control" id="telpInput" placeholder="Phone">
-                                            <label for="telpInput">Phone</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="subjectInput" placeholder="Subject">
-                                            <label for="subjectInput">Subject</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="messageInput" placeholder="Your Message" style="height: 150px"></textarea>
-                                            <label for="messageInput">Your Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary px-4 py-2">
-                                            <i class="bi bi-send me-2"></i>Send Message
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            /* Badges retain white text on vibrant backgrounds */
+            [class*="bg-indigo-600"], [class*="bg-blue-600"], [class*="bg-rose-600"],
+            [class*="bg-pink-600"], [class*="bg-amber-600"], [class*="bg-emerald-600"],
+            [class*="bg-sky-600"], [class*="bg-purple-600"], [class*="bg-teal-600"],
+            [class*="bg-slate-900"], [class*="bg-primary"] {
+                color: #ffffff !important;
+            }
+            [class*="bg-indigo-600"] *, [class*="bg-blue-600"] *, [class*="bg-rose-600"] *,
+            [class*="bg-pink-600"] *, [class*="bg-amber-600"] *, [class*="bg-emerald-600"] *,
+            [class*="bg-sky-600"] *, [class*="bg-purple-600"] *, [class*="bg-teal-600"] *,
+            [class*="bg-slate-900"] *, [class*="bg-primary"] * {
+                color: #ffffff !important;
+            }
 
-    <!-- Footer -->
-    <footer class="footer py-4 bg-dark text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="mb-0">&copy; 2025 Kamila. All rights reserved.</p>
+            .glass {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+            }
+
+            /* --- SECTION 1: HERO (PAGE 1) --- */
+            #home {
+                min-height: auto !important;
+                height: auto !important;
+                padding-top: 0 !important;
+                padding-bottom: 0.5rem !important;
+                margin-bottom: 8px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #home .grid {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                gap: 16px !important;
+            }
+            #home .lg\:col-span-7 {
+                flex: 1 !important;
+            }
+            #home .lg\:col-span-5 {
+                flex-shrink: 0 !important;
+                width: auto !important;
+            }
+            #home .space-y-6 {
+                margin: 0 !important;
+            }
+            #home .space-y-6 > * + * {
+                margin-top: 4px !important;
+            }
+            #home h1 {
+                font-size: 22px !important;
+                line-height: 1.15 !important;
+                margin-bottom: 2px !important;
+            }
+            #home h2 {
+                font-size: 13px !important;
+                margin-bottom: 0 !important;
+            }
+            #home p {
+                font-size: 10px !important;
+                line-height: 1.35 !important;
+            }
+            #home .relative.w-72, #home .sm\:w-80, #home .sm\:h-96 {
+                width: 95px !important;
+                height: 115px !important;
+                border-radius: 10px !important;
+            }
+            #home img {
+                width: 95px !important;
+                height: 115px !important;
+                object-fit: cover !important;
+                border-radius: 10px !important;
+            }
+            #home .animate-tilt,
+            #home .absolute.-bottom-4,
+            #home .glow-blob {
+                display: none !important;
+            }
+            #home .flex.items-center.gap-3.pt-4 {
+                padding-top: 4px !important;
+                gap: 6px !important;
+            }
+            #home .w-10.h-10 {
+                width: 24px !important;
+                height: 24px !important;
+                border-radius: 6px !important;
+            }
+            #home .w-10.h-10 i {
+                font-size: 11px !important;
+            }
+
+            /* --- SECTION 2: ABOUT ME (PAGE 1) --- */
+            #about {
+                padding: 0 !important;
+                margin-bottom: 8px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #about .glass {
+                padding: 10px 14px !important;
+                border-radius: 10px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #about h2 {
+                font-size: 14px !important;
+                line-height: 1.25 !important;
+                margin-top: 2px !important;
+                margin-bottom: 4px !important;
+            }
+            #about p {
+                font-size: 9.5px !important;
+                line-height: 1.35 !important;
+                margin-bottom: 4px !important;
+            }
+            #about .grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 6px !important;
+                padding-top: 4px !important;
+                margin-top: 4px !important;
+            }
+            #about .grid > div {
+                padding: 4px 6px !important;
+            }
+            #about .grid h4 {
+                font-size: 10.5px !important;
+                margin-bottom: 1px !important;
+            }
+            #about .grid p {
+                font-size: 8.5px !important;
+                margin-bottom: 0 !important;
+            }
+            #about .grid .text-xl {
+                font-size: 14px !important;
+                margin-bottom: 2px !important;
+            }
+
+            /* --- SECTION 3: SKILLS & COMPETENCIES (PAGE 1) --- */
+            #skills {
+                padding: 0 !important;
+                margin-bottom: 8px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #skills .mb-12 {
+                margin-bottom: 6px !important;
+            }
+            #skills h2 {
+                font-size: 15px !important;
+                margin-top: 2px !important;
+                margin-bottom: 2px !important;
+            }
+            #skills p {
+                font-size: 9.5px !important;
+                margin-top: 0 !important;
+                margin-bottom: 4px !important;
+            }
+            #skills .grid {
+                display: grid !important;
+                grid-template-columns: repeat(6, 1fr) !important;
+                gap: 6px !important;
+            }
+            #skills .glass {
+                padding: 5px 4px !important;
+                border-radius: 8px !important;
+                gap: 3px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #skills i {
+                font-size: 15px !important;
+            }
+            #skills span {
+                font-size: 8.5px !important;
+                font-weight: 700 !important;
+                line-height: 1.15 !important;
+            }
+
+            /* --- SECTION 4: FEATURED PROJECTS (PAGE BREAK: STARTS PAGE 2) --- */
+            #portfolio {
+                page-break-before: always !important;
+                break-before: page !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            #portfolio .mb-12 {
+                margin-bottom: 8px !important;
+            }
+            #portfolio h2 {
+                font-size: 16px !important;
+            }
+            #portfolio .text-slate-700 {
+                font-size: 9.5px !important;
+            }
+
+            /* Featured Dinkominfo Spotlight */
+            #portfolio .break-inside-avoid.glass.rounded-3xl {
+                padding: 8px 12px !important;
+                border-radius: 12px !important;
+                margin-bottom: 10px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #portfolio .break-inside-avoid.glass.rounded-3xl > .grid {
+                display: grid !important;
+                grid-template-columns: 5fr 7fr !important;
+                gap: 10px !important;
+            }
+            #portfolio .break-inside-avoid.glass.rounded-3xl .grid-cols-2 {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 5px !important;
+            }
+            #portfolio .break-inside-avoid.glass.rounded-3xl img {
+                max-height: 60px !important;
+                object-fit: cover !important;
+                border-radius: 6px !important;
+            }
+            #portfolio .break-inside-avoid.glass.rounded-3xl h3 {
+                font-size: 13px !important;
+                line-height: 1.2 !important;
+                margin-bottom: 2px !important;
+            }
+            #portfolio .break-inside-avoid.glass.rounded-3xl p,
+            #portfolio .break-inside-avoid.glass.rounded-3xl li {
+                font-size: 9px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 3px !important;
+            }
+            #portfolio .break-inside-avoid.glass.rounded-3xl ul {
+                margin-bottom: 4px !important;
+            }
+
+            /* Projects Grid - 2 columns in print */
+            #projectsGrid,
+            #portfolio .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            #projectsGrid > div,
+            #portfolio .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 > div {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                border-radius: 10px !important;
+            }
+            #projectsGrid img,
+            #portfolio .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 img {
+                max-height: 75px !important;
+                object-fit: cover !important;
+            }
+            #projectsGrid .p-6,
+            #portfolio .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 .p-6 {
+                padding: 6px 8px !important;
+            }
+            #projectsGrid h3,
+            #portfolio .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 h3 {
+                font-size: 11.5px !important;
+                margin-bottom: 2px !important;
+            }
+            #projectsGrid p,
+            #portfolio .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 p {
+                font-size: 8.5px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 3px !important;
+            }
+
+            /* --- SECTION 5: EXPERIENCE (INTERNSHIP & ORGANIZATION) --- */
+            #experience {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            #experience h2 {
+                font-size: 16px !important;
+            }
+            #experience .mb-12, #experience .mb-14 {
+                margin-bottom: 6px !important;
+            }
+            /* Internship card */
+            #experience .mb-14.break-inside-avoid .glass {
+                padding: 8px 12px !important;
+                border-radius: 10px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #experience .mb-14.break-inside-avoid h4 {
+                font-size: 12.5px !important;
+            }
+            #experience .mb-14.break-inside-avoid p,
+            #experience .mb-14.break-inside-avoid li {
+                font-size: 9.5px !important;
+                line-height: 1.3 !important;
+            }
+
+            /* 10 Organization timeline items in 2 columns */
+            #orgTimeline,
+            #experience .relative.border-l-2 {
+                border-left: none !important;
+                margin-left: 0 !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6px !important;
+            }
+            #experience .relative.pl-6 {
+                padding-left: 0 !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #experience .relative.pl-6 .absolute {
+                display: none !important;
+            }
+            #experience .relative.pl-6 .glass {
+                padding: 6px 8px !important;
+                border-radius: 8px !important;
+                height: 100% !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #experience .relative.pl-6 h4 {
+                font-size: 10.5px !important;
+                line-height: 1.2 !important;
+            }
+            #experience .relative.pl-6 p {
+                font-size: 8.5px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 1px !important;
+            }
+
+            /* --- SECTION 6: EDUCATION --- */
+            #education {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #education h2 {
+                font-size: 16px !important;
+                margin-bottom: 4px !important;
+            }
+            #education .mb-12 {
+                margin-bottom: 6px !important;
+            }
+            #education .grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            #education .break-inside-avoid {
+                padding: 8px 10px !important;
+                border-radius: 10px !important;
+                gap: 8px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #education h3 {
+                font-size: 11.5px !important;
+            }
+            #education p {
+                font-size: 9px !important;
+                line-height: 1.3 !important;
+            }
+            #education .w-12.h-12 {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 13px !important;
+                border-radius: 6px !important;
+            }
+
+            /* --- SECTION 7: CONTACT --- */
+            #contact {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #contact .glass {
+                padding: 8px 12px !important;
+                border-radius: 10px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            #contact .lg\:grid-cols-12 {
+                display: block !important;
+            }
+            #contact h2 {
+                font-size: 13px !important;
+                margin-bottom: 3px !important;
+            }
+            #contact p {
+                font-size: 9.5px !important;
+            }
+            #contact .space-y-4 {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                gap: 10px !important;
+                margin-top: 4px !important;
+            }
+            #contact .space-y-4 > div {
+                margin-top: 0 !important;
+            }
+            #contact .w-10.h-10 {
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 11px !important;
+                border-radius: 6px !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-darkbg dark:text-slate-100 transition-colors duration-300 font-sans antialiased relative selection:bg-indigo-500 selection:text-white">
+
+    <!-- Background decorative blur lights -->
+    <div class="glow-blob w-96 h-96 bg-indigo-400 rounded-full top-10 left-10 dark:opacity-20"></div>
+    <div class="glow-blob w-96 h-96 bg-purple-400 rounded-full top-96 right-10 dark:opacity-20"></div>
+    <div class="glow-blob w-80 h-80 bg-pink-400 rounded-full bottom-96 left-1/3 dark:opacity-15"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-50 transition-all duration-150 w-0"></div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 inset-x-0 z-40 px-4 sm:px-8 py-3.5 transition-all duration-300 no-print" id="navbar">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-5 py-3 flex items-center justify-between shadow-sm">
+            <a href="#" class="flex items-center gap-2 text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <span>Kamila<span class="text-indigo-500">.</span></span>
+            </a>
+
+            <!-- Desktop Nav Items -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#home" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#portfolio" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#education" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a>
+                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions: PDF Download & Theme Toggle & Mobile Menu -->
+            <div class="flex items-center gap-2.5">
+                <!-- PDF Download Button -->
+                <button id="downloadPdfBtn" title="Download Portfolio PDF" class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/20 active:scale-95 transition-all">
+                    <i class="bi bi-file-earmark-pdf-fill text-sm"></i>
+                    <span class="hidden sm:inline">Export PDF</span>
+                </button>
+
+                <!-- Dark Mode Toggle -->
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors">
+                    <i class="bi bi-moon-stars-fill dark:hidden text-lg"></i>
+                    <i class="bi bi-sun-fill hidden dark:inline text-lg text-amber-400"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" aria-label="Open Menu" class="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden mt-2 max-w-7xl mx-auto glass rounded-2xl p-5 shadow-xl flex flex-col gap-3 font-medium text-slate-700 dark:text-slate-200">
+            <a href="#home" class="mobile-link py-1 hover:text-indigo-600">Home</a>
+            <a href="#about" class="mobile-link py-1 hover:text-indigo-600">About</a>
+            <a href="#skills" class="mobile-link py-1 hover:text-indigo-600">Skills</a>
+            <a href="#portfolio" class="mobile-link py-1 hover:text-indigo-600">Projects</a>
+            <a href="#experience" class="mobile-link py-1 hover:text-indigo-600">Experience</a>
+            <a href="#education" class="mobile-link py-1 hover:text-indigo-600">Education</a>
+            <a href="#contact" class="mobile-link py-1 hover:text-indigo-600">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN EXPORTABLE CONTENT CONTAINER -->
+    <main id="portfolio-content" class="relative z-10 pt-24 pb-16">
+        
+        <!-- HERO SECTION (Satu-satunya tempat foto profil diletakkan sesuai request) -->
+        <section id="home" class="min-h-[85vh] flex items-center px-4 sm:px-8 py-12 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+                
+                <!-- Left text content -->
+                <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-indigo-100 text-indigo-800 dark:bg-indigo-950/80 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Available for Work & Opportunities
+                    </div>
+
+                    <div class="space-y-2">
+                        <h2 class="text-lg sm:text-xl font-bold text-indigo-600 dark:text-indigo-400">Hi, I'm</h2>
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-950 dark:text-white">
+                            Kamilatus Sa'adah
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-medium text-slate-800 dark:text-slate-200">
+                            Full Stack Developer <span class="text-indigo-600 dark:text-indigo-400 font-bold">& QA Specialist</span>
+                        </p>
+                    </div>
+
+                    <p class="text-slate-800 dark:text-slate-200 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
+                        I craft clean, functional, and user-centric digital experiences. Focused on modern web technologies, robust backend architectures, and thorough Quality Assurance.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center gap-3.5 pt-2 no-print">
+                        <a href="#portfolio" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg shadow-indigo-600/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                            View Portfolio
+                        </a>
+                        <a href="#contact" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-semibold border border-slate-300 dark:border-slate-700 shadow-sm transition-all">
+                            Get in Touch
+                        </a>
+                        <a href="https://youtu.be/93DW5_ngn-Y" target="_blank" rel="noopener" class="px-5 py-3 rounded-xl bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-semibold inline-flex items-center gap-2 transition-all">
+                            <i class="bi bi-play-circle-fill text-lg"></i>
+                            Intro Video
+                        </a>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="flex items-center gap-3 pt-4">
+                        <a href="https://github.com/kamilasaadah" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 transition-all shadow-sm">
+                            <i class="bi bi-github text-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kamila-saadah-3633a4357/" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 transition-all shadow-sm">
+                            <i class="bi bi-linkedin text-lg"></i>
+                        </a>
+                        <a href="https://instagram.com/kamilasdh" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 transition-all shadow-sm">
+                            <i class="bi bi-instagram text-lg"></i>
+                        </a>
+                        <a href="https://x.com/icedchocomillo" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 transition-all shadow-sm">
+                            <i class="bi bi-twitter-x text-lg"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                        <a href="https://github.com/kamilasaadah" class="social-icon-sm"><i class="bi bi-github"></i></a>
-                        <a href="https://www.linkedin.com/in/kamila-saadah-3633a4357/" class="social-icon-sm"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://x.com/icedchocomillo" class="social-icon-sm"><i class="bi bi-twitter-x"></i></a>
-                        <a href="https://www.instagram.com/kamilasdh" class="social-icon-sm"><i class="bi bi-instagram"></i></a>
+
+                <!-- Right Photo (THE SINGLE PHOTO ON TOP) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <!-- Decorative glow aura behind photo -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-700 group-hover:duration-200 animate-tilt"></div>
+                        
+                        <div class="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-white/80 dark:border-slate-700 shadow-2xl">
+                            <img src="mila-profile.jpg" alt="Kamilatus Sa'adah" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <!-- Floating mini badge -->
+                        <div class="absolute -bottom-4 -left-4 glass px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-3 border border-white/60">
+                            <div class="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-lg">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Specialized in</p>
+                                <p class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Full Stack & QA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+            <div class="glass rounded-3xl p-8 sm:p-12 border border-slate-300/80 dark:border-slate-800 shadow-xl relative overflow-hidden">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">About Me</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 dark:text-white mt-1 mb-6">
+                        Passionate Developer with strong QA & Leadership background
+                    </h2>
+                    
+                    <p class="text-slate-800 dark:text-slate-200 leading-relaxed mb-4 text-base sm:text-lg">
+                        Motivated Informatics Engineering student at Universitas Airlangga, Surabaya, with strong academic performance and extensive organizational experience. Skilled in software testing (manual, UAT, regression testing), documentation, and full stack development. Adept at teamwork, event coordination, and critical thinking.
+                    </p>
+                    <p class="text-slate-800 dark:text-slate-200 leading-relaxed mb-8 text-base">
+                        My approach combines technical expertise with creative problem-solving to deliver solutions that not only meet but exceed user expectations. I believe in clean code, responsive design, accessibility, and high quality standards.
+                    </p>
+
+                    <!-- Key highlights grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 border-t border-slate-200 dark:border-slate-800/80">
+                        <div class="p-3">
+                            <div class="text-indigo-600 dark:text-indigo-400 text-xl mb-1"><i class="bi bi-code-slash"></i></div>
+                            <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Full Stack</h4>
+                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Laravel & Tailwind</p>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-indigo-600 dark:text-indigo-400 text-xl mb-1"><i class="bi bi-check2-circle"></i></div>
+                            <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">QA & Testing</h4>
+                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Manual & UAT</p>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-indigo-600 dark:text-indigo-400 text-xl mb-1"><i class="bi bi-phone"></i></div>
+                            <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Mobile</h4>
+                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Flutter & Dart</p>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-indigo-600 dark:text-indigo-400 text-xl mb-1"><i class="bi bi-people"></i></div>
+                            <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Leadership</h4>
+                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Youth & Campus Org</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex gap-3 no-print">
+                        <a href="https://drive.google.com/file/d/14_k6EFMn5QnnoJhnQ6ecCWLifb-uue_B/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-semibold text-sm hover:opacity-90 transition-opacity">
+                            <i class="bi bi-file-earmark-person"></i> View Original CV
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Tech Stack & Tools</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white mt-1">Skills & Competencies</h2>
+                <p class="text-slate-700 dark:text-slate-300 font-medium mt-2 text-sm sm:text-base">Technologies, frameworks, and methodologies I work with on daily basis.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+                <!-- Web & Mobile -->
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-laravel text-red-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Laravel</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-php text-indigo-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">PHP</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-phone-fill text-sky-400 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Flutter / Dart</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-html5 text-orange-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">HTML & CSS</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-wind text-cyan-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Tailwind CSS</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-bootstrap text-purple-600 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Bootstrap</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-js text-yellow-400 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">JavaScript</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-python text-blue-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Python</span>
+                </div>
+
+                <!-- Databases -->
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-database-fill text-sky-600 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">PostgreSQL</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-database text-amber-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">MySQL / SQL</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-server text-green-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">MongoDB / NoSQL</span>
+                </div>
+
+                <!-- Design & Tools -->
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-figma text-pink-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Figma UI/UX</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="fa-brands fa-git-alt text-orange-600 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Git & GitHub</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-palette-fill text-teal-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Canva</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-file-earmark-spreadsheet-fill text-blue-600 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Microsoft Office</span>
+                </div>
+
+                <!-- QA & Testing -->
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-patch-check-fill text-indigo-500 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Manual QA</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-shield-check text-indigo-400 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">UAT Testing</span>
+                </div>
+                <div class="glass p-3.5 rounded-2xl flex flex-col items-center justify-center text-center gap-2 hover:border-indigo-500/50 hover:shadow-md transition-all">
+                    <i class="bi bi-arrow-repeat text-indigo-600 text-2xl"></i>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">Regression QA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO / PROJECTS SECTION -->
+        <section id="portfolio" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Showcase</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white mt-1">Featured Projects</h2>
+                </div>
+                <p class="text-slate-700 dark:text-slate-300 text-sm max-w-md mt-2 sm:mt-0 font-medium">
+                    A selection of real-world web apps, mobile solutions, software specs, and UI/UX prototypes.
+                </p>
+            </div>
+
+            <!-- Featured Internship Spotlight: Dinkominfo Kota Surabaya -->
+            <div class="break-inside-avoid glass rounded-3xl overflow-hidden border border-indigo-200/80 dark:border-indigo-900/60 shadow-lg hover:shadow-2xl transition-all duration-300 mb-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <!-- 2x2 Gallery Side (Semua 4 foto tampil langsung di web & PDF) -->
+                    <div class="lg:col-span-7 p-4 sm:p-5 bg-slate-100/70 dark:bg-slate-900/50 flex flex-col justify-center">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div onclick="openImageModal('img/dinkominfo-1.jpg', 'Beranda Portal Layanan Digital')" class="cursor-pointer group relative overflow-hidden rounded-xl aspect-video bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                <img src="img/dinkominfo-1.jpg" alt="Beranda Portal Dinkominfo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute bottom-1.5 left-1.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-950/80 text-white backdrop-blur-sm">Beranda Portal</span>
+                            </div>
+                            <div onclick="openImageModal('img/dinkominfo-2.jpg', 'Katalog Layanan Publik Digital')" class="cursor-pointer group relative overflow-hidden rounded-xl aspect-video bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                <img src="img/dinkominfo-2.jpg" alt="Katalog Layanan Publik" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute bottom-1.5 left-1.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-950/80 text-white backdrop-blur-sm">Katalog Layanan</span>
+                            </div>
+                            <div onclick="openImageModal('img/dinkominfo-3.jpg', 'Bidang di Lingkungan Dinkominfo')" class="cursor-pointer group relative overflow-hidden rounded-xl aspect-video bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                <img src="img/dinkominfo-3.jpg" alt="Bidang Dinkominfo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute bottom-1.5 left-1.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-950/80 text-white backdrop-blur-sm">Bidang & Tupoksi</span>
+                            </div>
+                            <div onclick="openImageModal('img/dinkominfo-4.jpg', 'Formulir Pendaftaran Magang')" class="cursor-pointer group relative overflow-hidden rounded-xl aspect-video bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                <img src="img/dinkominfo-4.jpg" alt="Formulir Pendaftaran Magang" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute bottom-1.5 left-1.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-950/80 text-white backdrop-blur-sm">Pendaftaran Magang</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description Side -->
+                    <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-indigo-600 text-white">Internship Project</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-600 text-white">Laravel</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-cyan-600 text-white">Tailwind CSS</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-600 text-white">Bootstrap</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-600 text-white">PostgreSQL</span>
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-slate-950 dark:text-white mb-2">
+                                Portal Layanan Digital & E-Government — Dinkominfo Kota Surabaya
+                            </h3>
+                            <p class="text-xs font-bold text-indigo-700 dark:text-indigo-400 mb-4">
+                                Web Developer Intern • Sept 2026 – Nov 2026
+                            </p>
+                            <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 font-normal">
+                                Developed an integrated e-government web portal and public service administration system for Dinas Komunikasi dan Informatika (Dinkominfo) Kota Surabaya.
+                            </p>
+                            <ul class="text-xs sm:text-sm text-slate-800 dark:text-slate-200 space-y-2 mb-6 font-normal">
+                                <li class="flex items-start gap-2">
+                                    <i class="bi bi-check-circle-fill text-indigo-600 mt-0.5"></i>
+                                    <span>Centralized digital service catalog (Call Center 112, Wargaku, PPID, Satu Data) & AI assistant integration.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="bi bi-check-circle-fill text-indigo-600 mt-0.5"></i>
+                                    <span>Multi-step online internship registration workflow with automated status tracking.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="bi bi-check-circle-fill text-indigo-600 mt-0.5"></i>
+                                    <span>Structured backend & PostgreSQL (Neon DB) integration for optimal administrative data management.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-slate-300 dark:border-slate-800 flex items-center justify-between text-xs text-slate-700 dark:text-slate-400 no-print">
+                            <span class="font-medium">Government / Public Sector</span>
+                            <span class="font-bold text-indigo-600 dark:text-indigo-400">Click any image to zoom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- 1. DecentGrowth -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/decentgrowth.png" alt="DecentGrowth" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-indigo-600 text-white shadow">SRS & Requirements</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">DecentGrowth</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Digital platform designed to help individuals from disadvantaged backgrounds find decent employment. Focuses on developing detailed Software Requirements Specification (SRS).
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">System Architecture</span>
+                            <a href="https://drive.google.com/file/d/1R6AsfBM4rZKXtB-18zBDCKQ2CwPr5H1q/view?usp=sharing" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 inline-flex items-center gap-1">
+                                View SRS Doc <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. MediStore -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/medistore.png" alt="MediStore" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-rose-600 text-white shadow">Laravel & MySQL</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">MediStore</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Pharmacy stock management & medicine ordering web application. Enables pharmacies to track inventory efficiently while giving users convenience to purchase medicine online.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">Full Stack Web</span>
+                            <a href="https://github.com/FDAGaming/Tugas-Workshop-kelompok-2.git" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 inline-flex items-center gap-1">
+                                GitHub Repo <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. RailKu -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/railku.png" alt="RailKu" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-pink-600 text-white shadow">Figma UI/UX</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">RailKu</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Comprehensive train ticket booking UI/UX prototype created in Figma. Designed for seamless intercity rail ticket discovery and booking with high usability standards.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">Interactive Prototype</span>
+                            <a href="https://www.figma.com/proto/dVCphx691bA07tmkuSEUCe/project-ui?node-id=162-11935&starting-point-node-id=162%3A11935" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 inline-flex items-center gap-1">
+                                Figma Prototype <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. BansosFix -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="BANSOSFIX.png" alt="BansosFix" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-600 text-white shadow">Project Management</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">BansosFix</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Digital solution designed to ensure transparent and accurate validation of poverty data across 10 regions in East Java, facilitating survey verification and aid distribution.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">Civic Tech</span>
+                            <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Research & Specs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Panenia -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/panenia.png" alt="Panenia" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-600 text-white shadow">Frontend E-Commerce</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">Panenia</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Agricultural e-commerce web platform for fresh groceries, veggies, and spices. Complete with cart calculation, order management, and admin sales dashboard.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">HTML / JS / CSS</span>
+                            <div class="flex gap-3">
+                                <a href="https://github.com/kamilasaadah/panenia.git" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400">GitHub</a>
+                                <a href="https://kamilasaadah.github.io/panenia/" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400">Live Demo <i class="bi bi-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Pastry Paradise -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/pastryparadise.png" alt="Pastry Paradise" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-600 text-white shadow">Flutter & PocketBase</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">Pastry Paradise</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Full stack mobile application for pastry and bakery recipe curation, featuring interactive instructions, user bookmarks, and seamless backend integration.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">Mobile Development</span>
+                            <a href="https://github.com/kamilasaadah/pastryparadise" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 inline-flex items-center gap-1">
+                                GitHub Repo <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Tower Defense AI -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/towerdefense.png" alt="Tower Defense" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-600 text-white shadow">Python & Fuzzy AI</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">Tower Defense AI</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Artificial intelligence implementation in a strategic tower defense game utilizing Mamdani fuzzy logic decision-making algorithms in Python.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">Intelligent Systems</span>
+                            <a href="https://github.com/kamilasaadah/towerdefense" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 inline-flex items-center gap-1">
+                                GitHub Repo <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Sweetnest Bakery -->
+                <div class="break-inside-avoid glass rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+                        <img src="img/sweetnestbakery.png" alt="Sweetnest Bakery" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-lg bg-teal-600 text-white shadow">Web UI Design</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white mb-2">Sweetnest Bakery</h3>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed mb-4 flex-grow font-normal">
+                            Modern aesthetic landing page design engineered with clean semantic HTML & responsive CSS for an artisan bakery brand.
+                        </p>
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between no-print">
+                            <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">Landing Page</span>
+                            <a href="https://github.com/kamilasaadah/sweetnestbakery" target="_blank" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 dark:text-indigo-400 inline-flex items-center gap-1">
+                                GitHub Repo <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Track Record</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white mt-1">Internship & Organizational Experience</h2>
+                <p class="text-slate-700 dark:text-slate-300 font-medium mt-2 text-sm sm:text-base">Professional internship and leadership roles in software development, administration, and event management.</p>
+            </div>
+
+            <!-- INTERNSHIP EXPERIENCE HIGHLIGHT -->
+            <div class="mb-14 break-inside-avoid">
+                <div class="flex items-center gap-2.5 mb-5">
+                    <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-sm shadow">
+                        <i class="bi bi-briefcase-fill"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-950 dark:text-white">Internship Experience</h3>
+                </div>
+
+                <div class="glass p-6 sm:p-8 rounded-3xl border-2 border-indigo-500/40 dark:border-indigo-500/30 shadow-lg relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-extrabold text-slate-950 dark:text-white">Web Developer Intern</h4>
+                            <p class="text-sm font-bold text-indigo-700 dark:text-indigo-400">Dinas Komunikasi dan Informatika (Dinkominfo) Kota Surabaya</p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-600 text-white w-fit shadow-sm">Sept 2026 – Nov 2026</span>
+                    </div>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-800 dark:text-slate-200 list-disc list-inside font-normal">
+                        <li>Developed e-government web applications and public service administration systems using Laravel, Bootstrap, Tailwind CSS, and PostgreSQL (Neon DB).</li>
+                        <li>Implemented structured system integration to ensure optimal administrative workflows and reliable data management for end users.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ORGANIZATIONAL & LEADERSHIP EXPERIENCE -->
+            <div class="flex items-center gap-2.5 mb-6">
+                <div class="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center text-sm shadow">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-950 dark:text-white">Organizational & Leadership Experience</h3>
+            </div>
+
+            <!-- Modern Timeline -->
+            <div id="orgTimeline" class="relative border-l-2 border-indigo-200 dark:border-indigo-900/60 ml-4 md:ml-10 space-y-6">
+                
+                <!-- 1 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Member of Organization Department</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-900 dark:bg-indigo-950 dark:text-indigo-300 w-fit">Jan 2025 – Present</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">IPPNU Sukorejo, Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Supported event management and organizational development activities, including scheduling work programs, monitoring, and evaluating each department's performance.</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Secretary of Community Service Department</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Feb 2025 – Dec 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">HIMA D4 Informatics Engineering, Universitas Airlangga</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Coordinated community service programs with students and external stakeholders; maintained documentation, reports, and organizational communication.</p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Vice Chairperson</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Nov 2023 – Dec 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">IPPNU PR Kemiri, Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Provided leadership and coordinated youth activities at the community level; managed organizational planning and communication.</p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Head of Committee – Public Speaking Workshop</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Jul 2025 – Sep 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">IPNU IPPNU Sukorejo, Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Led the organizing committee and supervised the entire workshop program; coordinated speakers, participants, and event logistics.</p>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Fundraising Division Staff – HIMTI CARES Vol. 3</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Apr 2025 – Jul 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">HIMA D4 Informatics Engineering, Universitas Airlangga</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Raised and managed funds to support social and charity programs; built partnerships with sponsors and stakeholders.</p>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Person in Charge – MAKESTA RAYA</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Mar 2025 – Jun 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">IPNU IPPNU PR Kemiri, Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Supervised event planning and execution, ensuring all organizational objectives were achieved successfully.</p>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Executive Secretary – Inauguration Committee</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Jan 2025 – Feb 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">IPNU IPPNU Sukorejo, Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Drafted official letters, meeting minutes, and event reports; coordinated cross-division communication.</p>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Speaker Division Staff – Aliyah Campus Expo</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Nov 2024 – Jan 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Coordinated guest speakers and panel sessions; managed communication between speakers and the organizing committee.</p>
+                    </div>
+                </div>
+
+                <!-- 9 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Staff of Secretariat Division</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Aug 2024 – Dec 2024</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">Student Orientation Program, Universitas Airlangga</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Assisted in grading and administration of new student assignments throughout orientation activities.</p>
+                    </div>
+                </div>
+
+                <!-- 10 -->
+                <div class="relative pl-6 sm:pl-8 group break-inside-avoid">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg border-4 border-indigo-600"></div>
+                    <div class="glass p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm hover:border-indigo-500/40 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
+                            <h4 class="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white">Event Staff – Aliyah Campus Expo</h4>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200 w-fit">Dec 2023 – Jan 2024</span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-indigo-700 dark:text-indigo-400 mb-2">Pasuruan</p>
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-normal">Contributed to event planning and execution, including logistics and on-site event coordination.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Academic Background</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white mt-1">Education</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- University -->
+                <div class="break-inside-avoid glass rounded-2xl p-6 sm:p-8 border border-slate-300 dark:border-slate-800 shadow-sm flex gap-5 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex-shrink-0 flex items-center justify-center text-xl shadow-md shadow-indigo-600/20">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-indigo-700 dark:text-indigo-400">Aug 2023 - Present</span>
+                        <h3 class="text-lg font-extrabold text-slate-950 dark:text-white mt-1">Applied Bachelor in Informatics Engineering</h3>
+                        <p class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">Universitas Airlangga, Surabaya</p>
+                        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                            Deepening knowledge in software engineering, database systems, software quality assurance, full-stack web and mobile development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- High School -->
+                <div class="break-inside-avoid glass rounded-2xl p-6 sm:p-8 border border-slate-300 dark:border-slate-800 shadow-sm flex gap-5 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex-shrink-0 flex items-center justify-center text-xl shadow-md shadow-purple-600/20">
+                        <i class="bi bi-book-fill"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-indigo-700 dark:text-indigo-400">Jul 2020 - Jul 2023</span>
+                        <h3 class="text-lg font-extrabold text-slate-950 dark:text-white mt-1">Natural Sciences & Mathematics</h3>
+                        <p class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-2">MAS MAARIF SUKOREJO, Pasuruan</p>
+                        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                            Formed strong analytical, scientific inquiry, and algorithmic problem-solving foundations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+            <div class="glass rounded-3xl p-8 sm:p-12 border border-slate-300/80 dark:border-slate-800 shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Get In Touch</span>
+                            <h2 class="text-3xl font-extrabold text-slate-950 dark:text-white mt-1">Let's collaborate on your next project!</h2>
+                            <p class="text-slate-800 dark:text-slate-200 text-sm mt-3 font-normal">
+                                Feel free to reach out for opportunities, projects, or just to say hi!
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400 flex items-center justify-center text-lg">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 font-bold">Email Address</p>
+                                    <p class="text-xs sm:text-sm font-bold text-slate-950 dark:text-slate-100 break-all">kamilatus.saadah.410739-2023@vokasi.unair.ac.id</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400 flex items-center justify-center text-lg">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 font-bold">WhatsApp / Phone</p>
+                                    <p class="text-sm font-bold text-slate-950 dark:text-slate-100">+62 812 2996 6949</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400 flex items-center justify-center text-lg">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 font-bold">Base Location</p>
+                                    <p class="text-sm font-bold text-slate-950 dark:text-slate-100">Surabaya & Pasuruan, Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form (Interactive with Email Client Fallback) -->
+                    <div class="lg:col-span-7 bg-white dark:bg-slate-800/80 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-sm no-print">
+                        <form id="contactFormModern" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
+                                    <input type="text" id="contactName" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+                                    <input type="email" id="contactEmail" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Subject</label>
+                                <input type="text" id="contactSubject" placeholder="Project Inquiry / Job Opportunity" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Message</label>
+                                <textarea id="contactMessage" rows="4" required placeholder="Describe your project or message..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold text-sm shadow-md shadow-indigo-600/25 transition-all flex items-center justify-center gap-2">
+                                <i class="bi bi-send-fill"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Image Zoom Lightbox Modal -->
+    <div id="imageModal" onclick="closeImageModal()" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+        <div onclick="event.stopPropagation()" class="relative max-w-5xl w-full bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+            <div class="flex items-center justify-between px-5 py-3 border-b border-slate-200 dark:border-slate-800">
+                <p id="modalCaption" class="text-sm font-bold text-slate-800 dark:text-white"></p>
+                <button onclick="closeImageModal()" class="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="bi bi-x-lg text-lg"></i>
+                </button>
+            </div>
+            <img id="modalImg" src="" alt="Preview" class="w-full max-h-[80vh] object-contain bg-slate-100 dark:bg-slate-950">
         </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 py-8 px-4 text-center text-xs text-slate-500 dark:text-slate-400 no-print">
+        <p>&copy; 2026 Kamilatus Sa'adah. Built with Tailwind CSS. All rights reserved.</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="bi bi-arrow-up"></i>
-    </a>
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Theme Toggle (Dark / Light)
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const htmlElement = document.documentElement;
 
-    <!-- Add scroll progress bar -->
-    <div id="scroll-progress" aria-hidden="true"></div>
+        // Load saved theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
 
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 3. Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-bar').style.width = scrolled + '%';
+        });
+
+        // 4. Contact Form Handling (mailto fallback directly)
+        const contactForm = document.getElementById('contactFormModern');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value || 'Portfolio Contact Inquiry';
+            const message = document.getElementById('contactMessage').value;
+
+            const mailtoLink = `mailto:kamilatus.saadah.410739-2023@vokasi.unair.ac.id?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\nMessage:\n' + message)}`;
+            
+            window.location.href = mailtoLink;
+        });
+
+        // 5. PDF Generation & Export (html2pdf.js + window.print fallback)
+        const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+        downloadPdfBtn.addEventListener('click', async () => {
+            const originalText = downloadPdfBtn.innerHTML;
+            downloadPdfBtn.innerHTML = '<i class="bi bi-hourglass-split animate-spin"></i> Generating PDF...';
+            downloadPdfBtn.disabled = true;
+
+            const wasDark = htmlElement.classList.contains('dark');
+            if (wasDark) {
+                htmlElement.classList.remove('dark');
+                await new Promise(resolve => setTimeout(resolve, 60));
+            }
+
+            try {
+                const element = document.getElementById('portfolio-content');
+                
+                // Configure options for clean professional layout
+                const opt = {
+                    margin:       [10, 10, 10, 10], // top, left, bottom, right in mm
+                    filename:     'Kamila_Saadah_Portfolio.pdf',
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2, useCORS: true, logging: false },
+                    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+
+                // Generate and download directly
+                await html2pdf().set(opt).from(element).save();
+            } catch (err) {
+                console.warn('html2pdf generation error, falling back to window.print():', err);
+                window.print();
+            } finally {
+                if (wasDark) {
+                    htmlElement.classList.add('dark');
+                }
+                downloadPdfBtn.innerHTML = originalText;
+                downloadPdfBtn.disabled = false;
+            }
+        });
+
+        // Ensure browser print (Ctrl+P) uses high-contrast light styling even if viewed in dark mode
+        let wasDarkBeforePrint = false;
+        window.addEventListener('beforeprint', () => {
+            if (htmlElement.classList.contains('dark')) {
+                wasDarkBeforePrint = true;
+                htmlElement.classList.remove('dark');
+            }
+        });
+        window.addEventListener('afterprint', () => {
+            if (wasDarkBeforePrint) {
+                htmlElement.classList.add('dark');
+                wasDarkBeforePrint = false;
+            }
+        });
+        // 6. Image Zoom Modal for Dinkominfo Gallery
+        function openImageModal(src, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+            if (modal && modalImg) {
+                modalImg.src = src;
+                modalCaption.textContent = caption || '';
+                modal.classList.remove('hidden');
+            }
+        }
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeImageModal();
+        });
+    </script>
 </body>
 </html>
